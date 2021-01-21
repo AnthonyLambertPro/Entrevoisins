@@ -1,11 +1,12 @@
 package com.openclassrooms.entrevoisins.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * Model object representing a Neighbour
  */
-public class Neighbour {
+public class Neighbour implements Serializable {
 
     /** Identifier */
     private long id;
@@ -26,35 +27,35 @@ public class Neighbour {
     private String aboutMe;
 
     /** isFavorite */
-    private  boolean isFavorite;
+    private  boolean favorite;
 
 
     /**
      * Constructor
-     * @param id
-     * @param name
-     * @param avatarUrl
-     * @param address
-     * @param phoneNumber
-     * @param aboutMe
-     * @param isFavorite
+     * @param id : long
+     * @param name : String
+     * @param avatarUrl : String
+     * @param address : String
+     * @param phoneNumber : String
+     * @param aboutMe : String
+     * @param favorite : String
      */
 
-    public Neighbour(long id, String name, String avatarUrl, String address, String phoneNumber, String aboutMe, boolean isFavorite) {
+    public Neighbour(long id, String name, String avatarUrl, String address, String phoneNumber, String aboutMe, boolean favorite) {
         this.id = id;
         this.name = name;
         this.avatarUrl = avatarUrl;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.aboutMe = aboutMe;
-        this.isFavorite = isFavorite;
+        this.favorite = favorite;
     }
 
     public long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -99,11 +100,11 @@ public class Neighbour {
     }
 
     public boolean isFavorite() {
-        return isFavorite;
+        return favorite;
     }
 
     public void setFavorite(boolean favorite) {
-        isFavorite = favorite;
+        this.favorite = favorite;
     }
 
     @Override

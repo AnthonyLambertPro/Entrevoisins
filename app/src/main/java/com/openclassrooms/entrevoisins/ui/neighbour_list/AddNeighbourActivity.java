@@ -19,6 +19,8 @@ import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -40,6 +42,7 @@ public class AddNeighbourActivity extends AppCompatActivity {
 
     private NeighbourApiService mApiService;
     private String mNeighbourImage;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,15 +83,20 @@ public class AddNeighbourActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.create)
+
+
     void addNeighbour() {
+
+
         Neighbour neighbour = new Neighbour(
                 System.currentTimeMillis(),
                 nameInput.getEditText().getText().toString(),
                 mNeighbourImage,
                 addressInput.getEditText().getText().toString(),
                 phoneInput.getEditText().getText().toString(),
-                aboutMeInput.getEditText().getText().toString()
-        );
+                aboutMeInput.getEditText().getText().toString(),
+                false
+       );
         mApiService.createNeighbour(neighbour);
         finish();
     }
